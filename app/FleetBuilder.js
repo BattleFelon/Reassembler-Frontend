@@ -31,7 +31,7 @@ function buildFleet(name,faction,total_value, min_ship_value, max_ship_value, mi
 	var ship_value;
 	var target_thruster_points;
 	var target_module_points;
-	var symm;
+
 
     while(new_fleet.getTotalValue() < total_value){
 
@@ -40,7 +40,7 @@ function buildFleet(name,faction,total_value, min_ship_value, max_ship_value, mi
 		target_thruster_points = (1.0 - module_to_thrust_ratio) * ship_value;
 		target_module_points = 	(module_to_thrust_ratio) * ship_value;
 
-		new_fleet.addShip(name + "_" + loop_counter, faction, target_hull_amount,target_thruster_points,target_module_points,block_limit,symm);
+		new_fleet.addShip(name + "_" + loop_counter, faction, target_hull_amount,target_thruster_points,target_module_points,block_limit,symmetry);
 		loop_counter++;
 	}
   //Remove ship that put it over
@@ -52,7 +52,7 @@ function buildFleet(name,faction,total_value, min_ship_value, max_ship_value, mi
   target_thruster_points = (1.0 - module_to_thrust_ratio) * ship_value;
   target_module_points = 	(module_to_thrust_ratio) * ship_value;
   if(min_ship_value < remainder){
-    new_fleet.addShip(name + "_" + "remainder", faction, target_hull_amount,target_thruster_points,target_module_points,block_limit,symm);
+    new_fleet.addShip(name + "_" + "remainder", faction, target_hull_amount,target_thruster_points,target_module_points,block_limit,symmetry);
   }
 
 	return(new_fleet);
@@ -68,6 +68,7 @@ function drawFleet(context,x,y,scale){
 function addShip(name, faction,target_hull_amount, target_thruster_points, target_module_points, block_limit, ship_symmetry){
   this.ships.push(SB.buildShip(name, faction,target_hull_amount, target_thruster_points, target_module_points, block_limit, ship_symmetry));
 }
+
 module.exports = {
   Fleet: Fleet,
   drawFleet: drawFleet,

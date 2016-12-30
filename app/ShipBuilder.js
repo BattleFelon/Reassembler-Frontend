@@ -404,7 +404,7 @@ function buildShip(name, faction,target_hull_amount, target_thruster_points, tar
 
 	//Check symm
 	if(ship_symmetry == 2){
-		ship_symmetry = Util.getRandomInt(0,1);
+		ship_symmetry = Util.getRandomInt(0,2);
 	}
 
 	//New ship declaration
